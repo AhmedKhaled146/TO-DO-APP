@@ -3,8 +3,21 @@
     <div class="row d-flex justify-content-center align-items-center h-50">
       <div class="col col-lg-12 col-xl-12">
         <div class="card rounded-3">
+          <div>
+            <%= form_tag todos_path, method: :get do %>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search" %>
+            <% end %>
+            <form style="margin-top: 40px">
+              <h4 style="margin-left: 40px; margin-top: 40px">All taskes</h4>
+                <div style="position: relative; left: 680px">
+                    <span style="display: inline-block"><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></span>
+                    <span><button class="btn btn-outline-success", type="submit">Search</button></span>
+                </div>
+            </form>
+            
+          </div>
           <div class="card-body p-4">
-            <h4 class="text-center my-3 pb-3">All taskes</h4>
             <%= link_to "Add New Task", new_todo_path, class: "btn btn-success"%>
             <br>
             <table class="table mb-4">
@@ -19,7 +32,7 @@
                 <% @todo.each do |todo| %>
                     <tr>
                     <% if todo.active == true %>
-                        <td><del>todo.title</del></td>
+                        <td><del><%= todo.title %></del></td>
                         <td><mark>Completed<mark></td>
                     <% else %>
                       <td><%= todo.title %></td>
