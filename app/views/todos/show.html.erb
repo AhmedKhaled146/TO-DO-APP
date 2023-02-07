@@ -1,0 +1,39 @@
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-50">
+      <div class="col col-lg-12 col-xl-12">
+        <div class="card rounded-3"> 
+          <div class="card-body p-4">
+            <table class="table mb-4">
+              <thead>
+                <tr>
+                  <th scope="col">Task Title</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <% if @todo.active == true %>
+                        <td><del>@todo.title</del></td>
+                        <td><mark>Completed<mark></td>
+                    <% else %>
+                      <td><%= @todo.title %></td>
+                      <td>Not Completed</td>
+                    <% end %>
+                    <td style="min-width:40px; max-width:150px;"><%= @todo.description %></td>
+                    <td>
+                        <%= link_to 'Back', root_path, class: "btn btn-success ms-1" %>
+                        <%= link_to 'Edit', edit_todo_path(@todo), class: "btn btn-success ms-1" %>
+                        <span style="display: inline-block"><%= button_to "Delete", @todo, class: "btn btn-danger",  method: :delete %></span>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
