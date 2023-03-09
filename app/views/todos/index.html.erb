@@ -4,10 +4,6 @@
       <div class="col col-lg-12 col-xl-12">
         <div class="card rounded-3">
           <div>
-            <%= form_tag todos_path, method: :get do %>
-              <%= text_field_tag :search, params[:search] %>
-              <%= submit_tag "Search" %>
-            <% end %>
             <form style="margin-top: 40px">
               <h4 style="margin-left: 40px; margin-top: 40px">All taskes</h4>
                 <div style="position: relative; left: 680px">
@@ -47,7 +43,6 @@
                 <% end %>
               </tbody>
             </table>
-
           </div>
         </div>
       </div>
