@@ -52,3 +52,11 @@ test:
   username: postgres
   password: 123
   timeout: 5000
+
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  database: myapp_production
+  username: postgres
+  password: 123
