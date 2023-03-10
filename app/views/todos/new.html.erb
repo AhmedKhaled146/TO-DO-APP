@@ -7,7 +7,6 @@
 
             <h4 class="text-center my-3 pb-3">To Do App</h4>
             <%= form_for(@todo) do |form| %>
-                
                   <% if @todo.errors.any? %>
                     <% @todo.errors.full_messages.each do |message| %>
                         <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -15,9 +14,7 @@
                               <%= message %>
                             </div>
                         </div>
-
                     <% end %>
-
                   <% end %>
                 <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
                 <div class="col-12">
