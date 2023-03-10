@@ -1,18 +1,18 @@
 databases:
-  - name: postgres
-    databaseName: myapp
-    # user: myapp
+  - name: myapp
+    databaseName: myapp_ksfv
+    user: myapp_ksfv_user
 
 services:
   - type: web
-    name: rails
+    name: To-Do
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: myapp_ksfv
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
