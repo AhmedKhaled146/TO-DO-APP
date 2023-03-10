@@ -1,7 +1,7 @@
 databases:
   - name: postgres
     databaseName: myapp
-    user: myapp
+    # user: myapp
 
 services:
   - type: web
