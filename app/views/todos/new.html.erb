@@ -6,22 +6,34 @@
           <div class="card-body p-4">
 
             <h4 class="text-center my-3 pb-3">To Do App</h4>
-            <%= form_for(@todo) do |f| %>
+            <%= form_for(@todo) do |form| %>
+                
+                  <% if @todo.errors.any? %>
+                    <% @todo.errors.full_messages.each do |message| %>
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <div>
+                              <%= message %>
+                            </div>
+                        </div>
+
+                    <% end %>
+
+                  <% end %>
                 <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
                 <div class="col-12">
                     <div class="form-outline">
                     
-                    <%= f.text_field :title, type: "text", class: "form-control", placeholder: "Enter title"%>
+                    <%= form.text_field :title, type: "text", class: "form-control", placeholder: "Enter title"%>
                     <br>
-                    <%= f.text_area :description, type: "text", class: "form-control", placeholder: "Enter the Task"%>
+                    <%= form.text_area :description, type: "text", class: "form-control", placeholder: "Enter the Task"%>
                     <br>
-                    <%= f.check_box :active, class: "form-check-input"%>
-                    <%= f.label :completed %>
+                    <%= form.check_box :active, class: "form-check-input"%>
+                    <%= form.label :completed %>
                     </div>
                 </div>
                 <br>
                 <div class="col-6">
-                    <%= f.submit "Create Task", class: "btn btn-primary" %>
+                    <%= form.submit "Create Task", class: "btn btn-primary" %>
                     <%= link_to 'Back', root_path, class: "btn btn-primary"%>
                 </div>
                 </form>
